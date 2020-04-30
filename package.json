@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "node check.js",
-    "prepublish": "npm test",
-    "test": "mocha test/test.js"
+    "prepublish": "npm run snyk-protect && npm test",
+    "test": "mocha test/test.js",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -29,11 +30,13 @@
     "multimatch": "^2.1.0",
     "pdc": "cherbst/node-pdc",
     "system-install": "^1.0.0",
-    "which": "^1.0.8"
+    "which": "^1.0.8",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "assert-dir-equal": "^1.0.1",
     "metalsmith": "^1.0.1",
     "mocha": "^2.1.0"
-  }
+  },
+  "snyk": true
 }
